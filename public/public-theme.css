@@ -1,0 +1,75 @@
+/* Public-only presentation. Admin continues to use its existing styles. */
+.public-site { --ink:#172b3a; --muted:#516273; --line:#dce3e8; --paper:#f5f7f9; --surface:#fff; --accent:#e1eef3; --dark:#142735; color:var(--ink); font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif; }
+.public-site h1,.public-site h2,.public-site h3 { text-transform:none; letter-spacing:-.025em; line-height:1.25; font-weight:650; overflow-wrap:anywhere; }
+.public-site h1 { font-size:clamp(2rem,4vw,3.25rem); max-width:24ch; margin:.3rem 0 1rem; }
+.public-site h2,.public-site .profile-section h2 { font-size:clamp(1.35rem,2vw,1.75rem); margin:0 0 1rem; }
+.public-site h3 { font-size:1.1rem; }
+.public-site .page { padding-top:2.75rem; padding-bottom:4rem; min-height:75vh; }
+.public-site .site-header { background:#fff; border-bottom:1px solid var(--line); backdrop-filter:none; }
+.public-site .site-header-inner,.public-site .page,.public-site .site-footer-inner { max-width:1240px; }
+.public-site .brand { font-size:1.15rem; }
+.public-site .brand-mark { background:var(--dark); color:#fff; border-radius:4px; letter-spacing:0; }
+.public-site .brand span:not(.brand-mark) { font-size:.7rem; letter-spacing:.04em; }
+.public-site .site-nav a { font-size:.875rem; text-transform:none; letter-spacing:0; font-weight:600; }
+.public-site .site-nav a:last-child { border-radius:5px; background:#214e68; }
+.public-site .eyebrow { font-size:.75rem; letter-spacing:.1em; color:#46677b; }
+.public-site .lead { font-size:1.1rem; line-height:1.65; color:var(--muted); max-width:75ch; }
+.public-site .metadata,.public-site .result-count { font-size:.875rem; }
+.public-site .hero { display:block; min-height:0; padding:1rem 0 2rem; }
+.public-site .hero::after { display:none; }
+.public-site .hero h1 { max-width:23ch; }
+.public-site .hero p { max-width:65ch; }
+.public-site .search { gap:.6rem; margin:1.5rem 0; max-width:760px; }
+.public-site .search input { flex:1; }
+.public-site input,.public-site select,.public-site button { border:1px solid #aab8c2; border-radius:5px; background:white; min-width:0; font-size:.95rem; }
+.public-site button { color:#fff; background:#214e68; border-color:#214e68; text-transform:none; letter-spacing:0; font-weight:600; }
+.public-site button:hover { background:#153d54; }
+.public-site .filters { margin:1.75rem 0 1rem; padding:1rem; border:1px solid var(--line); border-radius:8px; background:#fff; }
+.public-site .filters input { flex:2 1 220px; }
+.public-site .filters select { flex:1 1 160px; max-width:100%; }
+.public-site .cards,.public-site .list,.public-site .pipeline { background:transparent; gap:1.25rem; }
+.public-site .cards a,.public-site .list-item,.public-site .pipeline-column { border:1px solid var(--line); border-radius:8px; background:white; }
+.public-site .cards a { min-height:190px; padding:1.5rem; }
+.public-site .cards h2,.public-site .list-item h2 { font-size:1.4rem; max-width:none; }
+.public-site .cards a:hover,.public-site .list-item:hover { background:#eef4f7; border-color:#91aab9; }
+.public-site .details { margin:1.75rem 0; border:1px solid var(--line); border-radius:8px; background:white; gap:0; }
+.public-site .details div { padding:1rem; }
+.public-site .details strong { font-size:.8rem; letter-spacing:0; text-transform:none; color:var(--muted); }
+.public-site .details span { font-size:1rem; font-weight:600; overflow-wrap:anywhere; }
+.public-site .profile-section { margin:2.5rem 0; padding-top:1.5rem; border-color:var(--line); }
+.public-site .page > section:not(.hero):not(.cards):not(.list):not(.pipeline):not(.details) { margin-top:2.5rem; }
+.public-site .property-facts,.public-site .record-facts { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); margin:0; }
+.public-site .property-facts > div,.public-site .record-facts > div { padding:1rem 1.15rem; min-width:0; background:#fff; }
+.public-site .property-facts dt,.public-site .record-facts dt { font-size:.875rem; font-weight:500; text-transform:none; letter-spacing:0; color:var(--muted); }
+.public-site .property-facts dd,.public-site .record-facts dd { margin:.35rem 0 0; font-size:1rem; overflow-wrap:anywhere; white-space:pre-wrap; }
+.public-site .fact-evidence-indicator { font-size:.7rem; color:#214e68; background:#e7f1f5; }
+.public-site .fact-evidence-tooltip { top:100%; left:0; width:100%; min-width:0; max-height:320px; border-color:#9cb3c1; box-shadow:0 8px 22px #172b3a25; border-radius:5px; font-size:.875rem; }
+.public-site .fact-evidence-heading { font-size:.8rem; letter-spacing:0; text-transform:none; }
+.public-site .property-hero-media img { max-height:450px; object-fit:contain; background:#e9edf0; }
+.public-site .property-card-image { height:230px; object-fit:cover; }
+.public-site .research-source-card,.public-site .timeline-content,.public-site .development-media-card { border-color:var(--line); border-radius:6px; box-shadow:none; }
+.public-site .research-source-metadata dt,.public-site .research-verification,.public-site .timeline-date { font-size:.875rem; }
+.public-site .research-trail-heading,.public-site .development-timeline-heading,.public-site .development-media-heading { gap:1rem; flex-wrap:wrap; }
+.public-site .section-nav { display:flex; flex-wrap:wrap; gap:.5rem 1rem; padding:1rem 0; margin:1rem 0; border-block:1px solid var(--line); font-size:.875rem; }
+.public-site .section-nav a { color:#214e68; }
+.public-site section[id] { scroll-margin-top:100px; }
+.public-site .record-note { border-left:3px solid #7294a9; padding:.65rem 1rem; background:#eaf0f4; color:#3c5566; max-width:none; }
+.public-site .site-footer p,.public-site .site-footer a { font-size:.875rem; line-height:1.65; text-transform:none; letter-spacing:0; }
+.public-site :focus-visible { outline:3px solid #2879a7; outline-offset:4px; }
+.public-site .skip-link { position:absolute; left:1rem; top:-100px; padding:.6rem 1rem; background:white; z-index:100; }
+.public-site .skip-link:focus { top:1rem; }
+@media(max-width:760px) {
+  .public-site .site-header-inner { flex-wrap:wrap; padding-block:.75rem; gap:.7rem; }
+  .public-site .site-nav a { font-size:.85rem; }
+  .public-site .property-facts,.public-site .record-facts { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .public-site .page { padding-top:1.5rem; }
+}
+@media(max-width:480px) {
+  .public-site .property-facts,.public-site .record-facts { grid-template-columns:1fr; }
+  .public-site .search { flex-direction:column; }
+  .public-site .search input { flex:auto; }
+  .public-site .details { grid-template-columns:1fr; }
+  .public-site .details div { border-right:0; border-bottom:1px solid var(--line); }
+  .public-site .site-header { position:static; }
+}
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .public-site * { transition:none!important; } }

@@ -1,0 +1,60 @@
+<%
+  const allEvidence = evidence || [];
+  const formatResearchDate = (value) => value ? new Date(value).toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' }) : null;
+  const formatFieldName = (fieldName) => (fieldName || 'record').replace(/_/g, ' ').replace(/\b\w/g, (letter) => letter.toUpperCase());
+  const evidenceBySource = allEvidence.reduce((groups, citation) => {
+    const source = citation.sources || {};
+    const key = source.source_id || `uncatalogued-${citation.evidence_id}`;
+    if (!groups[key]) groups[key] = { source, citations: [] };
+    groups[key].citations.push(citation);
+    return groups;
+  }, {});
+%>
+
+<section class="research-trail" id="sources-and-evidence">
+  <div class="research-trail-heading">
+    <div>
+      <p class="eyebrow">Research trail</p>
+      <h2>Sources and evidence</h2>
+    </div>
+    <% if (allEvidence.length) { %><span class="research-count"><%= allEvidence.length %> citation<%= allEvidence.length === 1 ? '' : 's' %></span><% } %>
+  </div>
+
+  <% if (!allEvidence.length) { %>
+    <p class="research-empty">No field-level evidence has been recorded for this page yet.</p>
+  <% } else { %>
+    <p class="research-intro">Each citation identifies the recorded field it supports and links back to its source document.</p>
+    <div class="research-source-list">
+      <% Object.values(evidenceBySource).forEach(({ source, citations }) => { %>
+        <article class="research-source-card">
+          <div class="research-source-header">
+            <div>
+              <h3><%= source.document_title || source.source_name || 'Source document' %></h3>
+              <% if (source.document_title && source.source_name) { %><p class="research-publisher"><%= source.source_name %></p><% } %>
+            </div>
+            <% if (source.url) { %><a class="research-source-link" href="<%= presentation.safeUrl(source.url) %>" target="_blank" rel="noreferrer">Open source ↗</a><% } %>
+          </div>
+
+          <% const metadata = [
+            source.source_types?.type_name ? ['Type', source.source_types.type_name] : null,
+            source.publication_date ? ['Published', formatResearchDate(source.publication_date)] : null,
+            source.accessed_at ? ['Accessed', formatResearchDate(source.accessed_at)] : null,
+            source.reliability_level ? ['Reliability', source.reliability_level] : null,
+          ].filter(Boolean); %>
+          <% if (metadata.length) { %><dl class="research-source-metadata"><% metadata.forEach(([label, value]) => { %><div><dt><%= label %></dt><dd><%= value %></dd></div><% }) %></dl><% } %>
+          <% if (source.notes) { %><p class="research-source-notes"><%= source.notes %></p><% } %>
+
+          <ul class="research-citation-list">
+            <% citations.forEach((citation) => { const confidence = citation.confidence_score === null || citation.confidence_score === undefined ? null : `${Math.round(Number(citation.confidence_score) * 100)}%`; %>
+              <li>
+                <p class="research-field">Supports: <strong><%= formatFieldName(citation.field_name) %></strong></p>
+                <% if (citation.evidence_text) { %><p class="research-evidence-text"><%= citation.evidence_text %></p><% } %>
+                <p class="research-verification"><%= [citation.verified_at ? `Verified ${formatResearchDate(citation.verified_at)}` : null, confidence ? `${confidence} confidence` : null].filter(Boolean).join(' · ') || 'Citation recorded' %></p>
+              </li>
+            <% }) %>
+          </ul>
+        </article>
+      <% }) %>
+    </div>
+  <% } %>
+</section>

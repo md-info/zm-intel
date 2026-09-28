@@ -1,0 +1,20 @@
+@import url('/styles.css');
+.form { display: grid; gap: 16px; max-width: 760px; }
+.form label { display: grid; gap: 6px; font-weight: 650; }
+.form input, .form select, .form textarea { width: 100%; background: white; }
+.form textarea { min-height: 100px; resize: vertical; }
+.form button { width: fit-content; }
+.filter-form { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); max-width: none; margin: 0 0 24px; padding: 16px; border: 1px solid #d9e3de; border-radius: 8px; background: #f8fbf9; align-items: end; }
+.filter-actions { display: flex; align-items: center; gap: 12px; padding-bottom: 1px; }
+.filter-actions a { white-space: nowrap; }
+.notice { background: #fff4e6; border: 1px solid #eac288; border-radius: 6px; padding: 12px; }
+.success { background: #e7f4ea; border: 1px solid #9cc9a5; border-radius: 6px; padding: 12px; }
+.title-row { display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; margin-bottom: 24px; }
+.title-row h1 { margin-top: 0; }
+.title-row .button { background: var(--accent); color: white; border-radius: 5px; padding: 10px 12px; text-decoration: none; white-space: nowrap; }
+.list-item > a { display: inline-block; margin-top: 10px; }
+.delete-form { margin-top: 28px; }
+.danger { background: #a82d2d; border-color: #a82d2d; }
+.confirm-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 24px; }
+.confirm-actions form { margin: 0; }
+.secondary { background: white !important; color: var(--accent) !important; border: 1px solid var(--accent); }

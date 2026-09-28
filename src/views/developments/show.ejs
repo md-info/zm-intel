@@ -1,0 +1,37 @@
+<%- include('../partials/header') %>
+<link rel="stylesheet" href="/research-trail.css">
+<link rel="stylesheet" href="/development-timeline.css">
+<link rel="stylesheet" href="/development-media.css">
+<%
+  const timelineEvents = development.timelineEvents || [];
+  const developmentMedia = development.developmentMedia || [];
+  const formatTimelineDate = (value) => new Date(`${value}T00:00:00`).toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' });
+%>
+<p class="eyebrow"><%= development.development_types?.type_name || 'Development' %></p><h1><%= development.project_name || 'Unnamed development' %></h1><p class="lead"><% if (development.properties) { %><a href="/properties/<%= development.properties.property_id %>"><%= development.properties.property_name || development.properties.address_line_1 %></a>, <%= development.properties.municipality || '' %><% } %></p>
+<section class="development-timeline" aria-labelledby="timeline-heading">
+  <div class="development-timeline-heading"><div><p class="eyebrow">Project roadmap</p><h2 id="timeline-heading">Development timeline</h2></div><p>Recorded milestones; future dates may change</p></div>
+  <% if (timelineEvents.length) { %>
+    <ol class="timeline-events">
+      <% timelineEvents.forEach((event) => { %>
+        <li class="timeline-event timeline-event--<%= event.event_status %>">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-date"><time datetime="<%= event.event_date %>"><%= formatTimelineDate(event.event_date) %></time></div>
+          <article class="timeline-content">
+            <div class="timeline-content-heading"><h3><%= event.title %></h3><span class="timeline-status"><%= event.event_status === 'current' ? 'Current stage' : event.event_status === 'upcoming' ? 'Upcoming' : 'Completed' %></span></div>
+            <p class="metadata"><%= event.verified ? 'Verified milestone' : 'Not independently verified' %> · <%= event.event_type || 'Milestone' %></p>
+            <% if (event.description) { %><p><%= event.description %></p><% } %>
+            <% if (event.sources?.url) { %><a class="timeline-source" href="<%= presentation.safeUrl(event.sources.url) %>" target="_blank" rel="noreferrer"><%= event.sources.document_title || event.sources.source_name || 'View source' %> ↗</a><% } else if (event.sources?.source_name) { %><p class="timeline-source-name"><%= event.sources.source_name %></p><% } %>
+          </article>
+        </li>
+      <% }) %>
+    </ol>
+  <% } else { %>
+    <p class="timeline-empty">No verified milestones have been added yet.</p>
+  <% } %>
+</section>
+<% if (developmentMedia.length) { %><section class="development-media" aria-labelledby="development-media-heading"><div class="development-media-heading"><div><p class="eyebrow">Project visuals</p><h2 id="development-media-heading">Plans and concept imagery</h2></div><p>Proposed project material — not current property conditions.</p></div><div class="development-media-grid"><% developmentMedia.forEach((media) => { const label = media.media_type === 'plan' ? 'Plan drawing' : media.media_type === 'rendering' ? 'Concept render' : media.media_type === 'site' ? 'Site image' : media.media_type === 'document' ? 'Document image' : 'Project visual'; %><article class="development-media-card"><img src="<%= presentation.safeUrl(media.image_url) %>" alt="<%= media.alt_text || label + ' for ' + (development.project_name || 'this development') %>" loading="lazy"><div class="development-media-card-body"><p class="eyebrow"><%= label %></p><% if (media.alt_text) { %><p><%= media.alt_text %></p><% } %><% if (media.source_url) { %><a href="<%= presentation.safeUrl(media.source_url) %>" target="_blank" rel="noreferrer"><%= media.source_name || 'View image source' %> ↗</a><% } else if (media.source_name) { %><p class="metadata"><%= media.source_name %></p><% } %></div></article><% }) %></div></section><% } %>
+<section class="details"><div><strong>Planning status</strong><span><%= development.development_statuses?.status_name || 'Unspecified' %></span></div><div><strong>Proposed units</strong><span><%= development.proposed_units ?? 'Not recorded' %></span></div><div><strong>Proposed storeys</strong><span><%= development.proposed_storeys ?? 'Not recorded' %></span></div><div><strong>Application number</strong><span><%= development.application_number || 'Not recorded' %></span></div></section>
+<%- include('../partials/record-facts', { record: development, fields: presentation.developmentFields.filter(([,key]) => !['application_number','proposed_units','proposed_storeys'].includes(key)), heading: 'Project specifications and dates' }) %>
+<% if (development.description) { %><section><h2>Project notes</h2><p><%= development.description %></p></section><% } %>
+<%- include('../partials/research-trail', { evidence: development.evidence || [] }) %>
+<%- include('../partials/footer') %>

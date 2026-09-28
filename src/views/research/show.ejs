@@ -1,0 +1,3 @@
+<%- include('../partials/header') %>
+<article><p class="eyebrow">Case study</p><h1><%= article.title %></h1><p class="lead"><%= article.summary || '' %></p><p class="metadata">Published <%= article.published_at ? new Date(article.published_at).toLocaleDateString() : 'Draft date pending' %></p><div class="article-content"><%= article.content %></div></article>
+<%- include('../partials/footer') %>

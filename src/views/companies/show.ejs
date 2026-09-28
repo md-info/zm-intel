@@ -1,0 +1,3 @@
+<%- include('../partials/header') %>
+<p class="eyebrow"><%= company.company_types?.type_name || 'Company' %></p><h1><%= company.company_name %></h1><p class="lead"><%= company.headquarters_city || 'Headquarters not recorded' %></p><% if (company.description) { %><section><h2>About</h2><p><%= company.description %></p></section><% } %><section><h2>Property relationships</h2><ul><% company.property_company_relationships.forEach((relationship) => { %><li><a href="/properties/<%= relationship.properties?.property_id %>"><%= relationship.properties?.property_name || 'Property' %></a> — <%= relationship.relationship_types?.relationship_type_name || 'Relationship' %></li><% }) %></ul></section>
+<%- include('../partials/footer') %>

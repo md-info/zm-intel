@@ -1,0 +1,8 @@
+<% const visibleFields = fields.filter(([, key]) => presentation.present(record[key])); if (visibleFields.length) { %>
+<section class="profile-section">
+  <h2><%= heading %></h2>
+  <dl class="record-facts"><% visibleFields.forEach(([label,key]) => { %>
+    <div><dt><%= label %></dt><dd><%= presentation.format(record[key],key) %></dd></div>
+  <% }) %></dl>
+</section>
+<% } %>

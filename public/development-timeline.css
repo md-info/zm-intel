@@ -1,0 +1,42 @@
+.development-timeline {
+  margin: 4.5rem 0;
+  padding: 1.15rem 0 0;
+  border-top: 1px solid var(--ink);
+  border-radius: 0;
+  background: transparent;
+}
+
+.development-timeline-heading,
+.timeline-content-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.development-timeline h2, .timeline-content h3 { margin: 0; }
+.development-timeline .eyebrow { margin: 0 0 0.3rem; }
+.development-timeline-heading > p { margin: 0; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.timeline-events { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+.timeline-event { position: relative; display: grid; grid-template-columns: 1rem 8.5rem 1fr; column-gap: 1rem; min-height: 7rem; }
+.timeline-event:not(:last-child)::before { content: ''; position: absolute; left: 0.45rem; top: 1rem; bottom: -0.1rem; width: 2px; background: var(--line); }
+.timeline-marker { position: relative; z-index: 1; width: 0.9rem; height: 0.9rem; margin-top: 0.2rem; border-radius: 50%; border: 3px solid var(--ink); background: #fff; box-sizing: border-box; }
+.timeline-event--current .timeline-marker { border-color: var(--ink); background: var(--accent); box-shadow: 0 0 0 4px #ecece5; }
+.timeline-event--upcoming .timeline-marker { border-color: #898985; background: var(--paper); }
+.timeline-date { color: var(--muted); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+.timeline-content { padding-bottom: 1.6rem; }
+.timeline-content p { margin: 0.45rem 0 0; line-height: 1.55; }
+.timeline-status { padding: 0.2rem 0.5rem; border-radius: 0; background: #e8e8e2; color: var(--ink); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
+.timeline-event--current .timeline-status { background: var(--accent); color: var(--ink); }
+.timeline-event--upcoming .timeline-status { background: #ededeb; color: var(--muted); }
+.timeline-source, .timeline-source-name { display: inline-block; margin-top: 0.7rem; font-size: 0.88rem; }
+.timeline-source-name { color: #56665f; }
+.timeline-empty { color: #52645c; }
+
+@media (max-width: 620px) {
+  .development-timeline { padding: 1rem; }
+  .development-timeline-heading, .timeline-content-heading { flex-direction: column; }
+  .timeline-event { grid-template-columns: 1rem 1fr; }
+  .timeline-date { grid-column: 2; grid-row: 1; }
+  .timeline-content { grid-column: 2; grid-row: 2; padding-top: 0.35rem; }
+}
