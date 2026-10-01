@@ -4,10 +4,10 @@
 .development-media-heading .eyebrow { margin: 0 0 0.25rem; }
 .development-media-heading > p { margin: 0; max-width: 23rem; color: var(--muted); font-size: 0.9rem; }
 .development-media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1rem; }
-.development-media-card { overflow: hidden; border: 1px solid var(--ink); border-radius: 0; background: #fff; }
-.development-media-card img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: #e8e8e2; }
+.development-media-card { overflow: hidden; border: 1px solid var(--ink); border-radius: 0; background: var(--surface); }
+.development-media-card img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: var(--zm-slate); }
 .development-media-card-body { padding: 1rem; }
 .development-media-card-body .eyebrow { margin: 0 0 0.35rem; }
-.development-media-card-body p:not(.eyebrow) { margin: 0 0 0.75rem; color: #516159; }
+.development-media-card-body p:not(.eyebrow) { margin: 0 0 0.75rem; color: var(--muted); }
 .development-media-card-body a { font-weight: 650; }
 @media (max-width: 620px) { .development-media-heading { align-items: flex-start; flex-direction: column; gap: 0.45rem; } }

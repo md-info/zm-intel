@@ -4,7 +4,7 @@
 .property-card-body { display: flex; flex-direction: column; justify-content: space-between; padding: 1.25rem; }
 .property-hero-media { display: grid; grid-template-columns: minmax(0, 2fr) minmax(180px, 1fr); gap: 0; align-items: stretch; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
 .property-hero-media img { width: 100%; min-height: 290px; max-height: 540px; object-fit: cover; border: 0; }
-.property-hero-media > div { display: flex; flex-direction: column; justify-content: end; padding: 1.25rem; background: var(--dark); color: white; }
-.property-hero-media > div .metadata { color: #cacac5; }
+.property-hero-media > div { display: flex; flex-direction: column; justify-content: end; padding: 1.25rem; background: var(--dark); color:var(--ink); }
+.property-hero-media > div .metadata { color: var(--muted); }
 .property-hero-media > div a { color: var(--accent); }
 @media (max-width: 600px) { .property-card { grid-template-columns: 1fr; } .property-card-image, .property-card-placeholder { height: 190px; } .property-hero-media { grid-template-columns: 1fr; } }

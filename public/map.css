@@ -1,5 +1,5 @@
 /* Minimal Leaflet layout styles kept locally so the map remains stable if CDN CSS fails. */
-.property-map.leaflet-container { position: relative; height: 360px; overflow: hidden; background: #e7ece7; border: 1px solid #dfe5df; border-radius: 8px; font: 12px/1.5 system-ui, sans-serif; }
+.property-map.leaflet-container { position: relative; height: 360px; overflow: hidden; background: var(--zm-slate); border: 1px solid var(--line); border-radius: 8px; font: 12px/1.5 var(--zm-font); }
 .leaflet-pane, .leaflet-tile, .leaflet-marker-icon, .leaflet-marker-shadow, .leaflet-tile-container, .leaflet-pane > svg, .leaflet-pane > canvas { position: absolute; left: 0; top: 0; }
 .leaflet-pane { z-index: 400; }
 .leaflet-tile-pane { z-index: 200; }
@@ -13,10 +13,12 @@
 .leaflet-control { position: relative; z-index: 800; pointer-events: auto; }
 .leaflet-top, .leaflet-bottom { position: absolute; z-index: 1000; pointer-events: none; }
 .leaflet-top { top: 10px; }.leaflet-bottom { bottom: 10px; }.leaflet-left { left: 10px; }.leaflet-right { right: 10px; }
-.leaflet-control-zoom { border: 1px solid #aab4aa; border-radius: 4px; overflow: hidden; background: #fff; }
-.leaflet-control-zoom a { display: block; width: 28px; height: 28px; color: #16251c; text-align: center; line-height: 26px; text-decoration: none; font-size: 18px; border-bottom: 1px solid #dfe5df; }
+.leaflet-control-zoom { border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: var(--surface); }
+.leaflet-control-zoom a { display: block; width: 28px; height: 28px; color: var(--ink); text-align: center; line-height: 26px; text-decoration: none; font-size: 18px; border-bottom: 1px solid var(--line); }
 .leaflet-control-zoom a:last-child { border-bottom: 0; }
-.leaflet-control-attribution { padding: 2px 5px; background: rgba(255,255,255,.85); font-size: 11px; }
+.leaflet-control-attribution { padding: 2px 5px; background: rgba(16,30,44,.95); font-size: 11px; }
 .leaflet-popup { position: absolute; text-align: center; margin-bottom: 20px; }
-.leaflet-popup-content-wrapper { padding: 1px; text-align: left; border-radius: 6px; background: white; box-shadow: 0 2px 8px rgba(0,0,0,.18); }.leaflet-popup-content { margin: 10px 12px; }
-.zion-map-marker { width: 18px; height: 18px; border: 3px solid #fff; border-radius: 50%; background: #315c42; box-shadow: 0 1px 5px rgba(0,0,0,.4); }
+.leaflet-popup-content-wrapper { padding: 1px; text-align: left; border-radius: 6px; background:var(--surface); box-shadow: 0 2px 8px rgba(0,0,0,.18); }.leaflet-popup-content { margin: 10px 12px; }
+.zion-map-marker { width: 18px; height: 18px; border: 3px solid var(--surface); border-radius: 50%; background: var(--accent); box-shadow: 0 1px 5px rgba(0,0,0,.4); }
+
+.leaflet-tile-pane { filter:grayscale(1) invert(1) brightness(.8) sepia(.15) hue-rotate(165deg); }

@@ -1,0 +1,30 @@
+/* ZM brand system. Keep this file identical in both websites. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+:root {
+  color-scheme: dark;
+  --zm-midnight: #080f17;
+  --zm-navy: #101e2c;
+  --zm-slate: #1b3043;
+  --zm-blue: #79b8eb;
+  --zm-blue-hover: #a5d1f3;
+  --zm-white: #f5f7fa;
+  --zm-muted: #b0c2d2;
+  --zm-line: #344c60;
+  --zm-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ink: var(--zm-white);
+  --muted: var(--zm-muted);
+  --paper: var(--zm-midnight);
+  --surface: var(--zm-navy);
+  --panel: var(--zm-navy);
+  --dark: var(--zm-midnight);
+  --accent: var(--zm-blue);
+  --accent-dark: var(--zm-blue-hover);
+  --line: var(--zm-line);
+  --border: var(--zm-line);
+}
+body { background: var(--paper); color: var(--ink); font-family: var(--zm-font); }
+button, input, select, textarea { font-family: var(--zm-font); }
+::selection { background: var(--zm-blue); color: var(--zm-midnight); }
+:focus-visible { outline: 3px solid var(--zm-blue); outline-offset: 4px; }
+input::placeholder, textarea::placeholder { color: var(--muted); opacity: 1; }
+input, select, textarea { accent-color: var(--zm-blue); }
